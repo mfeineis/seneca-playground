@@ -1,0 +1,41 @@
+{
+  "name": "zen-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A playground example for an API using seneca.js",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "rm -rf dist/ && webpack --env.production",
+    "clean": "rm -rf node_modules/ && rm -rf dist/ && rm -rf tmp/",
+    "clean-install": "npm run clean && npm install",
+    "dev": "rm -rf dist/ && webpack",
+    "start": "node dist/main.js",
+    "start-service": "node dist/service.js",
+    "test": "tsc --outDir tmp && ava",
+    "test-watch": "tsc --watch --outDir tmp & ava --watch"
+  },
+  "keywords": [
+    "seneca",
+    "microservice",
+    "eventsourcing"
+  ],
+  "author": "Martin Feineis",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "seneca": "^3.4.3"
+  },
+  "devDependencies": {
+    "@types/seneca": "^2.1.8",
+    "ava": "^0.24.0",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "ts-loader": "^3.2.0",
+    "ts-node": "^3.3.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
+  },
+  "ava": {
+    "files": [
+      "tmp/**/__tests__/*.js"
+    ]
+  }
+}
